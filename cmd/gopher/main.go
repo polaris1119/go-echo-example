@@ -15,14 +15,15 @@ func main() {
 	e := echo.New()
 
 	e.Logger = logger.New(os.Stdout)
-	e.Logger.SetLevel(log.INFO)
+	e.Logger.SetLevel(log.DEBUG)
 
 	e.Use(middleware.Recover())
-	e.Use(middleware.Logger())
 
 	e.GET("/", func(ctx echo.Context) error {
+		ctx.Logger().Debugf("This is echo logger debug msg!")
+
 		zerolog := ctx.Logger().(*logger.Logger).ZeroLog
-		zerolog.Debug().Str("path", ctx.Path()).Msg("This is Debug msg!")
+		zerolog.Debug().Str("path", ctx.Path()).Msg("This is zerolog Debug msg!")
 
 		return ctx.HTML(http.StatusOK, "Hello World!")
 	})
