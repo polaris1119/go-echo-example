@@ -25,7 +25,8 @@ func main() {
 		zerolog := ctx.Logger().(*logger.Logger).ZeroLog
 		zerolog.Debug().Str("path", ctx.Path()).Msg("This is zerolog Debug msg!")
 
-		return ctx.HTML(http.StatusOK, "Hello World!")
+		// return ctx.HTML(http.StatusOK, "Hello World!")
+		return ctx.Render(http.StatusOK, "")
 	})
 
 	e.Logger.Fatal(e.Start(":2020"))
