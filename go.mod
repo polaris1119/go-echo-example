@@ -3,6 +3,7 @@ module github.com/polaris1119/go-echo-example
 go 1.13
 
 require (
+	gitea.com/zsxq/jianshu v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0
 	github.com/go-playground/universal-translator v0.17.0
 	github.com/go-playground/validator v9.31.0+incompatible
